@@ -18,8 +18,15 @@ const Courses = () => {
         <div>
             <Container>
                 <Row>
-                    <Col lg="3">
-                        <LeftSideNav></LeftSideNav>
+                    <Col lg="3" className='bg-dark d-flex align-items-center'>
+                        <div>
+                        {
+                            courses.map(course => <LeftSideNav
+                            key={course.id}
+                            course = {course}
+                            ></LeftSideNav>)
+                        }
+                        </div>
                     </Col>
                     <Col lg="9">
                     <Row xs={1} md={2} className="g-4">
