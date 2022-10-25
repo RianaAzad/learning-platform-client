@@ -7,6 +7,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
 import logo from '../../../src/logo.png';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import { FaUser } from "react-icons/fa";
+import { Image } from 'react-bootstrap';
+
 
 
 const Header = () => {
@@ -28,12 +31,18 @@ const Header = () => {
           </Nav>
 
           <Nav>
-            <Button variant='light mx-2 circular' size="sm"><Link to= '/login'>Log In</Link></Button>
+            <Button variant='light mx-2' size="sm"><Link to= '/login'>Log In</Link></Button>
             <Button variant='light' size="sm"><Link to= '/login'>Register</Link></Button>
             <Link>
-            <div>
-                <p>{user?.displayName}</p>
-            </div>
+            <Nav.Link>
+                {user?.displayName}
+                </Nav.Link>
+                <Nav.Link>
+                    {user?.photoURL ?
+                <Image src={user.photoURL}></Image> 
+                : <FaUser></FaUser>   
+                }
+                </Nav.Link>
             </Link>
           </Nav>
         </Navbar.Collapse>

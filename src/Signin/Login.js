@@ -1,11 +1,29 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link } from 'react-router-dom';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import {FaGoogle, FaGithub } from "react-icons/fa";
+import { AuthContext } from '../context/AuthProvider/AuthProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
+
 
 const Login = () => {
+
+    const {providerLogin} = useContext(AuthContext)
+
+    const GoogleProvider = new GoogleAuthProvider();
+
+const handleGoogleSignIn = () =>{
+    providerLogin(GoogleProvider)
+    .then(result => {
+        const user = result.user;
+        console.log(user);
+    })
+    .catch(error => console.error(error))
+}
+
+
     return (
        <div>
          <div className='d-flex justify-content-center'>
@@ -37,7 +55,7 @@ const Login = () => {
          </div>
          <div className='d-flex justify-content-center'>
          <ButtonGroup vertical>
-      <Button variant="outline-dark mb-3"><FaGoogle></FaGoogle> Sign in with Google</Button>
+      <Button onClick={handleGoogleSignIn} variant="outline-dark mb-3"><FaGoogle></FaGoogle> Sign in with Google</Button>
       <Button variant="outline-dark"><FaGithub></FaGithub> Sign in with Github</Button>
     </ButtonGroup>
          </div>
