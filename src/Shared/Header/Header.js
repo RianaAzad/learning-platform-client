@@ -34,15 +34,19 @@ const Header = () => {
             <Button variant='light mx-2' size="sm"><Link to= '/login'>Log In</Link></Button>
             <Button variant='light' size="sm"><Link to= '/login'>Register</Link></Button>
             <Link>
+            <div className='d-flex'>
             <Nav.Link>
                 {user?.displayName}
                 </Nav.Link>
                 <Nav.Link>
                     {user?.photoURL ?
-                <Image src={user.photoURL}></Image> 
+                <Image
+                style={{height: '30px'}} roundedCircle
+                src={user.photoURL}></Image> 
                 : <FaUser></FaUser>   
                 }
                 </Nav.Link>
+            </div>
             </Link>
           </Nav>
         </Navbar.Collapse>
