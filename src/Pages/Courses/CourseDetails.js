@@ -20,6 +20,7 @@ const CourseDetails = () => {
         <p>{course.language}</p>
         <Button variant="primary">Go somewhere</Button>
         <Link to ='/courses'><Button variant="primary">Back to All Courses</Button></Link>
+        <Link to ='/checkout'><Button variant="primary">Check Out</Button></Link>
       </Card.Body>
     </Card>
         </div>

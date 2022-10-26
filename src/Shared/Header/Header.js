@@ -13,7 +13,14 @@ import { Image } from 'react-bootstrap';
 
 
 const Header = () => {
-    const {user} = useContext(AuthContext);
+    const {user, logout} = useContext(AuthContext);
+
+  const handleLogOut = () =>{
+    logout()
+    .then( () => {})
+    .catch(error => console.error(error))
+  }
+
     return (
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -31,18 +38,30 @@ const Header = () => {
           </Nav>
 
           <Nav>
-            <Button variant='light mx-2' size="sm"><Link to= '/login'>Log In</Link></Button>
-            <Button variant='light' size="sm"><Link to= '/login'>Register</Link></Button>
             <Link>
             <div className='d-flex'>
             <Nav.Link>
-                {user?.displayName}
+              {
+                user?.uid? 
+                <>
+                <span>{user?.displayName}</span>
+                <Button variant="light" onClick={handleLogOut}>Log Out</Button>
+                </>
+
+                : 
+                <>
+                <Link to='/login'>Login</Link>
+                <Link to='/register'>Register</Link>
+                </>
+              }
+                
+                
                 </Nav.Link>
                 <Nav.Link>
                     {user?.photoURL ?
                 <Image
                 style={{height: '30px'}} roundedCircle
-                src={user.photoURL}></Image> 
+                src={user?.photoURL}></Image> 
                 : <FaUser></FaUser>   
                 }
                 </Nav.Link>
