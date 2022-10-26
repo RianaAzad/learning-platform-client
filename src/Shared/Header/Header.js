@@ -32,7 +32,7 @@ const Header = () => {
 
           <Nav className="mx-auto">
           <Link className='mx-2 text-decoration-none text-white' to='/'>Home</Link>
-            <Link className='mx-2 text-decoration-none text-white' to='/courses'>Courses</Link>
+            <Link className='mx-2 text-decoration-none text-white' to='/courses/4'>Courses</Link>
             <Link className='mx-2 text-decoration-none text-white' to='/faq'>FAQ</Link>
             <Link className='mx-2 text-decoration-none text-white' to='/blog'>Blog</Link>
           </Nav>

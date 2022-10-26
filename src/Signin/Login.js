@@ -17,8 +17,8 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const locaiton = useLocation();
-    const from = locaiton.state?.from?.pathname || '/';
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/';
 
     const GoogleProvider = new GoogleAuthProvider();
 
