@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "../Home/Home";
 import Main from "../layout/Main";
+import TermsAndConditions from "../Others/TermsAndConditions";
 import Blog from "../Pages/Blog";
 import CheckOut from "../Pages/CheckOut";
 import CourseDetails from "../Pages/Courses/CourseDetails";
@@ -52,6 +53,10 @@ export const routes = createBrowserRouter([
             {
                 path: '/checkout',
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
+            },
+            {
+                path: '/terms',
+                element: <TermsAndConditions></TermsAndConditions>
             }
 
         ]
