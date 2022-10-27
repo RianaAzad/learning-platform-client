@@ -58,17 +58,7 @@ const Header = () => {
                 <div className='d-block d-lg-flex'>
                 <div><Button variant="outline-warning" className='text-white text-decoration-none' onClick={handleLogOut}>Log Out</Button></div>
                 <div><Link className='text-decoration-none' to='/profile'><span className='text-white h6 ms-lg-3 py-3 pe-3 text-decoration-none'>{user?.displayName}</span></Link>
-                {user?.photoURL ?
-                    <OverlayTrigger
-                    placement="right"
-                    delay={{ show: 250, hide: 400 }}
-                    overlay={renderTooltip}
-                    ><Link to='/profile'><Image
-                    style={{height: '30px', margin: '0 10px 0 0'}} roundedCircle
-                    src={user?.photoURL}></Image> </Link>
-                    </OverlayTrigger>
-                : <FaUser></FaUser>   
-                }</div>
+               </div>
                 </div>
 
                 : 
@@ -81,6 +71,17 @@ const Header = () => {
                 
                 
                 </Nav.Link>
+                {user?.photoURL ?
+                    <OverlayTrigger
+                    placement="right"
+                    delay={{ show: 250, hide: 400 }}
+                    overlay={renderTooltip}
+                    ><Link to='/profile'><Image
+                    style={{height: '30px', margin: '0 10px 0 0'}} roundedCircle
+                    src={user?.photoURL}></Image> </Link>
+                    </OverlayTrigger>
+                : <FaUser></FaUser>   
+                }
                 <Nav.Link>
                     
                 </Nav.Link>

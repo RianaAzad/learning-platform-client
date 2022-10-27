@@ -27,7 +27,6 @@ const handleGoogleSignIn = () =>{
     providerLogin(GoogleProvider)
     .then(result => {
         const user = result.user;
-        console.log(user);
         setError('');
         navigate(from,{replace:true});
     })
@@ -37,7 +36,6 @@ const handleGitHubSignIn = () =>{
     providerLogin(GitProvider)
     .then(result => {
         const user = result.user;
-        console.log(user);
         setError('');
         navigate(from,{replace:true});
     })
