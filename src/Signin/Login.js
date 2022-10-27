@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import {FaGoogle, FaGithub } from "react-icons/fa";
 import { AuthContext } from '../context/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useState } from 'react';
 
 
@@ -21,9 +21,20 @@ const Login = () => {
     const from = location.state?.from?.pathname || '/';
 
     const GoogleProvider = new GoogleAuthProvider();
+    const GitProvider = new GithubAuthProvider();
 
 const handleGoogleSignIn = () =>{
     providerLogin(GoogleProvider)
+    .then(result => {
+        const user = result.user;
+        console.log(user);
+        setError('');
+        navigate(from,{replace:true});
+    })
+    .catch(error => console.error(error))
+}
+const handleGitHubSignIn = () =>{
+    providerLogin(GitProvider)
     .then(result => {
         const user = result.user;
         console.log(user);
@@ -85,7 +96,7 @@ const handleSubmit = event =>{
          <div className='d-flex justify-content-center'>
          <ButtonGroup vertical>
       <Button onClick={handleGoogleSignIn} variant="outline-dark mb-3"><FaGoogle></FaGoogle> Sign in with Google</Button>
-      <Button variant="outline-dark"><FaGithub></FaGithub> Sign in with Github</Button>
+      <Button onClick={handleGitHubSignIn} variant="outline-dark"><FaGithub></FaGithub> Sign in with Github</Button>
     </ButtonGroup>
          </div>
        </div>
