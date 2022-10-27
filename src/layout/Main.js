@@ -12,7 +12,7 @@ const Main = () => {
             <Header></Header>
             <Container>
                 <Row>
-                    <Col lg="4" className='d-none d-lg-block'>
+                    <Col lg="4" className='d-none d-lg-block d-md-flex justify-content-center'>
                       <Categories></Categories>
                     </Col>
                     <Col lg="8">

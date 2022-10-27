@@ -1,12 +1,32 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link, useLoaderData } from 'react-router-dom';
-import { FaArrowAltCircleRight, FaStar, FaSlackHash } from "react-icons/fa";
+import { FaArrowAltCircleRight, FaStar, FaSlackHash, FaPrint, FaFilePdf } from "react-icons/fa";
+import { useReactToPrint } from 'react-to-print';
 
 const CourseDetails = () => {
     const course = useLoaderData();
+
+    const componentRef = useRef();
+    const handlePrint = useReactToPrint({
+        content: () => componentRef.current,
+        documentTitle: 'Your Course Details',
+    })
+
     return (
-        <div>
+        <>
+        <div className='text-end my-5 d-flex  px-2 justify-content-between bg-dark rounded-pill'>
+           
+        <div className='my-3 d-flex ps-2'>
+        <Button variant="outline-info" onClick={handlePrint}><FaPrint></FaPrint></Button>
+        <h5 className='text-white pt-2 ms-2'>Print this Page</h5>
+        </div>
+        <div className='m-3 d-flex'>
+        <h5 className='text-white pt-2 me-2'>Make PDF</h5>
+        <Button variant="outline-danger" onClick={handlePrint}><FaFilePdf></FaFilePdf></Button>
+        </div>
+        </div>
+        <div ref={componentRef}>
             <Card style={{ margin: '40px 20px', border: 'none'}}>
                     <Card.Img variant="top" src={course.picture} />
                     <Card.Body>
@@ -46,6 +66,7 @@ const CourseDetails = () => {
                     </Card.Body>
                     </Card>
         </div>
+        </>
     );
 };
 

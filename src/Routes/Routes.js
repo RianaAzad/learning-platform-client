@@ -2,7 +2,6 @@ import { createBrowserRouter, Link } from "react-router-dom";
 import Categories from "../Courses/Categories";
 import Course from "../Courses/Course";
 import CourseDetails from "../Courses/CourseDetails";
-import CoursesList from "../Courses/CoursesList";
 import Home from "../Home/Home";
 import Main from "../layout/Main";
 import TermsAndConditions from "../Others/TermsAndConditions";
@@ -18,6 +17,7 @@ import PrivateRoute from "./PrivateRoute";
 import error from '../Assests/error.png';
 
 
+
 export const routes = createBrowserRouter([
     {
         path: '/',
@@ -30,10 +30,6 @@ export const routes = createBrowserRouter([
             {
                 path: '/categories',
                 element: <Categories></Categories>
-            },
-            {
-                path: '/courses-list/:id',
-                element: <CoursesList></CoursesList>
             },
             {
                 path: '/courses/',

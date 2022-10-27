@@ -10,7 +10,9 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { FaUser } from "react-icons/fa";
 import { Image } from 'react-bootstrap';
 import Categories from '../../Courses/Categories';
-import './Header.css'
+import './Header.css';
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
+import Tooltip from 'react-bootstrap/Tooltip';
 
 
 
@@ -22,6 +24,12 @@ const Header = () => {
     .then( () => {})
     .catch(error => console.error(error))
   }
+
+  const renderTooltip = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+     {user.displayName}
+    </Tooltip>
+  );
 
     return (
         <div>
@@ -43,14 +51,25 @@ const Header = () => {
 
           <Nav>
             <Link>
-            <div className='d-flex'>
+            <div className='d-block d-lg-flex'>
             <Nav.Link>
               {
                 user?.uid? 
-                <>
-                <Button variant="outline-warning" className='text-white text-decoration-none' onClick={handleLogOut}>Log Out</Button>
-                <Link className='text-decoration-none' to='/profile'><span className='text-white h6 ms-3 text-decoration-none'>{user?.displayName}</span></Link>
-                </>
+                <div className='d-block d-lg-flex'>
+                <div><Button variant="outline-warning" className='text-white text-decoration-none' onClick={handleLogOut}>Log Out</Button></div>
+                <div><Link className='text-decoration-none' to='/profile'><span className='text-white h6 ms-lg-3 py-3 pe-3 text-decoration-none'>{user?.displayName}</span></Link>
+                {user?.photoURL ?
+                    <OverlayTrigger
+                    placement="right"
+                    delay={{ show: 250, hide: 400 }}
+                    overlay={renderTooltip}
+                    ><Link to='/profile'><Image
+                    style={{height: '30px', margin: '0 10px 0 0'}} roundedCircle
+                    src={user?.photoURL}></Image> </Link>
+                    </OverlayTrigger>
+                : <FaUser></FaUser>   
+                }</div>
+                </div>
 
                 : 
                 <>
@@ -63,13 +82,7 @@ const Header = () => {
                 
                 </Nav.Link>
                 <Nav.Link>
-                    {user?.photoURL ?
-                    <Link to='/profile'><Image
-                    style={{height: '30px', margin: '0 10px 0 0'}} roundedCircle
-                    src={user?.photoURL}></Image> </Link>
-                
-                : <FaUser></FaUser>   
-                }
+                    
                 </Nav.Link>
             </div>
             </Link>

@@ -14,7 +14,7 @@ const Course = () => {
             <CardGroup>
             {
                 allCourses.map(course => <p key={course.id}>
-                    <Card style={{ width: '20rem', margin: '5px' }}>
+                    <Card style={{ width: '20rem', height: '400px',margin: '5px' }}>
                     <Card.Img variant="top" src={course.picture} />
                     <Card.Body>
                         <Card.Title>{course.name}</Card.Title>

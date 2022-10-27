@@ -3,7 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import {FaGoogle, FaGithub } from "react-icons/fa";
+import {FaGoogle, FaGithub, FaFacebook } from "react-icons/fa";
 import { AuthContext } from '../context/AuthProvider/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import { useState } from 'react';
@@ -94,10 +94,12 @@ const handleSubmit = event =>{
      </Form> 
          </div>
          <div className='d-flex justify-content-center'>
-         <ButtonGroup vertical>
-      <Button onClick={handleGoogleSignIn} variant="outline-dark mb-3"><FaGoogle></FaGoogle> Sign in with Google</Button>
-      <Button onClick={handleGitHubSignIn} variant="outline-dark"><FaGithub></FaGithub> Sign in with Github</Button>
-    </ButtonGroup>
+        <div>
+        <h6 className='text-center'>OR</h6>
+          <hr></hr>
+        <span onClick={handleGoogleSignIn}  className='h2 text-danger p-4'><FaGoogle></FaGoogle></span>
+        <span onClick={handleGitHubSignIn} className='h2 text-dark p-4'><FaGithub></FaGithub></span>
+        </div>
          </div>
        </div>
     );
