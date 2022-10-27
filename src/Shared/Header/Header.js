@@ -5,10 +5,11 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { Link } from 'react-router-dom';
-import logo from '../../../src/logo.png';
+import logo from '../../../src/Assests/logo.png';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { FaUser } from "react-icons/fa";
 import { Image } from 'react-bootstrap';
+import Categories from '../../Courses/Categories';
 
 
 
@@ -25,8 +26,10 @@ const Header = () => {
         <div>
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
       <Container>
-        <img style={{width: '30px', margin: "10px"}} src={logo} alt="" />
-        <Navbar.Brand><Link className='text-white text-decoration-none h1' to='/'>Book Shelf</Link></Navbar.Brand>
+        <div className='bg-light bg-opacity-50 rounded-pill'>
+        <img style={{width: '35px', margin: "5px"}} src={logo} alt="" />
+        <Navbar.Brand><Link className='text-white text-decoration-none h1' to='/'>Edu.com</Link></Navbar.Brand>
+        </div>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
 

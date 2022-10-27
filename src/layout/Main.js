@@ -2,6 +2,7 @@ import React from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Outlet } from 'react-router-dom';
 import Categories from '../Courses/Categories';
+import Footer from '../Shared/Footer/Footer';
 
 import Header from '../Shared/Header/Header';
 
@@ -11,14 +12,17 @@ const Main = () => {
             <Header></Header>
             <Container>
                 <Row>
-                    <Col lg="3">
+                    <Col lg="4">
                       <Categories></Categories>
                     </Col>
-                    <Col lg="9">
+                    <Col lg="8">
                         <Outlet></Outlet>
                     </Col>
                 </Row>
             </Container>
+            <Row>
+                    <Footer></Footer>
+            </Row>
         </div>
     );
 };

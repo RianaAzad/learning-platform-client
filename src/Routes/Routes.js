@@ -9,7 +9,9 @@ import TermsAndConditions from "../Others/TermsAndConditions";
 import Blog from "../Pages/Blog";
 import CheckOut from "../Pages/CheckOut";
 import FAQ from "../Pages/FAQ";
+import Message from "../Pages/Message";
 import Profile from "../Pages/Profile";
+import Purchase from "../Pages/Purchase";
 import Login from "../Signin/Login";
 import Register from "../Signin/Register";
 import PrivateRoute from "./PrivateRoute";
@@ -73,6 +75,14 @@ export const routes = createBrowserRouter([
             {
                 path: '/terms',
                 element: <TermsAndConditions></TermsAndConditions>
+            },
+            {
+                path: '/message',
+                element: <Message></Message>
+            },
+            {
+                path: '/purchase',
+                element:<Purchase></Purchase>
             }
     
 
