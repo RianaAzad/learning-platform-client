@@ -1,4 +1,4 @@
-Live Link of the Website:
+Live Link of the Website: https://education-platform-ef7c3.web.app
 
 <!-- All about Edu.com -->
 
