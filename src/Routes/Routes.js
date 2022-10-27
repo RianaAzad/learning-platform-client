@@ -1,4 +1,4 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter, Link } from "react-router-dom";
 import Categories from "../Courses/Categories";
 import Course from "../Courses/Course";
 import CourseDetails from "../Courses/CourseDetails";
@@ -15,6 +15,8 @@ import Purchase from "../Pages/Purchase";
 import Login from "../Signin/Login";
 import Register from "../Signin/Register";
 import PrivateRoute from "./PrivateRoute";
+import error from '../Assests/error.png';
+
 
 export const routes = createBrowserRouter([
     {
@@ -69,7 +71,8 @@ export const routes = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: '/checkout',
+                path: '/checkout/:id',
+                loader: ({params}) => fetch(`http://localhost:5000/course-details/${params.id}`),
                 element: <PrivateRoute><CheckOut></CheckOut></PrivateRoute>
             },
             {
@@ -83,9 +86,20 @@ export const routes = createBrowserRouter([
             {
                 path: '/purchase',
                 element:<Purchase></Purchase>
+            },
+            {
+                path: '/profile',
+                element: <Profile></Profile>
             }
-    
-
         ]
-    }
+    },
+    {
+        path: '*', 
+        element: <div className='bg-white text-center'>
+          <img className='w-75 m-auto' src={error} alt="" />
+          <div className='h5'> <p className="h1  text-danger">Error: 404</p>This route is not found! Please Enter a valid page link. Thank you!<br></br>
+          <Link to='/'>Back to Home</Link>
+          </div>
+        </div>
+      }
 ])

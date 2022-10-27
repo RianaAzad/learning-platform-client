@@ -10,6 +10,7 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import { FaUser } from "react-icons/fa";
 import { Image } from 'react-bootstrap';
 import Categories from '../../Courses/Categories';
+import './Header.css'
 
 
 
@@ -47,14 +48,15 @@ const Header = () => {
               {
                 user?.uid? 
                 <>
-                <span>{user?.displayName}</span>
-                <Button variant="light" onClick={handleLogOut}>Log Out</Button>
+                <Button variant="outline-warning" className='text-white text-decoration-none' onClick={handleLogOut}>Log Out</Button>
+                <Link className='text-decoration-none' to='/profile'><span className='text-white h6 ms-3 text-decoration-none'>{user?.displayName}</span></Link>
                 </>
 
                 : 
                 <>
-                <Link to='/login'>Login</Link>
-                <Link to='/register'>Register</Link>
+                <Button className='me-2' variant='outline-warning'><Link className='text-white text-decoration-none' to='/login'>Login</Link></Button>
+                <Button variant='outline-warning'><Link 
+                className='text-white text-decoration-none'to='/register'>Register</Link></Button>
                 </>
               }
                 
@@ -62,16 +64,22 @@ const Header = () => {
                 </Nav.Link>
                 <Nav.Link>
                     {user?.photoURL ?
-                <Image
-                style={{height: '30px'}} roundedCircle
-                src={user?.photoURL}></Image> 
+                    <Link to='/profile'><Image
+                    style={{height: '30px', margin: '0 10px 0 0'}} roundedCircle
+                    src={user?.photoURL}></Image> </Link>
+                
                 : <FaUser></FaUser>   
                 }
                 </Nav.Link>
             </div>
             </Link>
+            <div className='d-lg-none d-md-none'><Categories></Categories></div>
           </Nav>
         </Navbar.Collapse>
+        <label class="switch">
+  <input type="checkbox"/>
+  <span class="slider round"></span>
+</label>
       </Container>
     </Navbar> 
         </div>

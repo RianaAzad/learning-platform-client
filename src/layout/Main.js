@@ -12,7 +12,7 @@ const Main = () => {
             <Header></Header>
             <Container>
                 <Row>
-                    <Col lg="4">
+                    <Col lg="4" className='d-none d-lg-block'>
                       <Categories></Categories>
                     </Col>
                     <Col lg="8">

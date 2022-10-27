@@ -1,70 +1,25 @@
-# Getting Started with Create React App
+Live Link of the Website:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- All about Edu.com -->
 
-## Available Scripts
+The website named Edu.com is a demo website for online learning platforms. Through this website users can visit 3 different categories of courses which are Cyber Security, Networking and Artificial Intelligence. The website offers total 12 courses and 4 for each. All courses link will show all the 12 courses together. The functionality of this website is:
+ 
+ 1. The home page contains the categories of courses that are offered at left and what we can get from this courses on the right.
+ 2. The courses page contains the categories at left and course short details at the right side as cards.
+ 3. The FAQ section provided few questions that user may have.
+ 4. The blog section contains the answers of 4 important questions. 
+ 5. Without logging in users can visit all the pages except the checkout page since it is protected under private route.
+ 6. Checkout page is loaded dynamically where user can see which course he/she is purchasing along with the price of that course. 
+ 7. A user can send us message anytime in case he/she may have regarding course or purchase by clicking on the message button of FAQ section. 
+ 7. The logged in user can see his/her name and profile picture in the right section of header.
+ 8. There is also a light/dark mode toggler on the header.
+ 9. 404 error page is set in case user provides any wrong address
 
-In the project directory, you can run:
 
-### `npm start`
+ For making this website following libraries and components are used:
+ 1. React bootstrap
+ 2. Firebase authentication system
+ 3. React Icons
+ 4. React router dom
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+ Thanks for visiting the website!

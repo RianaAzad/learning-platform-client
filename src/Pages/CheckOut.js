@@ -1,11 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const CheckOut = () => {
+    const course = useLoaderData();
+    console.log(course)
     return (
         <div>
+            
              <div className="checkout">
+             
          <section class="py-5">
+         <h3 className='mt-4 bg-info bg-opacity-10 p-3 rounded-pill'>Check Out for <span className='text-info'>{course.name}</span></h3>
                 <div class="container px-4 px-lg-5 my-5">
                 <div class="row">
                 <div class="col-md-4 order-md-2 mb-4">
@@ -14,19 +19,13 @@ const CheckOut = () => {
                     <span class="badge badge-secondary badge-pill">3</span>
                     </h4>
                     <ul class="list-group mb-3">
+                   
                     <li class="list-group-item d-flex justify-content-between lh-condensed">
                         <div>
                         <h6 class="my-0">Course</h6>
-                        <small class="text-muted">Cyber Security Fundamentals</small>
+                        <small class="text-muted">{course.name}</small>
                         </div>
-                        <span class="text-muted">$19.99</span>
-                    </li>
-                    <li class="list-group-item d-flex justify-content-between lh-condensed">
-                        <div>
-                        <h6 class="my-0">Course</h6>
-                        <small class="text-muted">Networking Fundamentals</small>
-                        </div>
-                        <span class="text-muted">$89.00</span>
+                        <span class="text-muted">${course.Price}</span>
                     </li>
                     <li class="list-group-item d-flex justify-content-between bg-light">
                         <div class="text-success">
@@ -37,7 +36,7 @@ const CheckOut = () => {
                     </li>
                     <li class="list-group-item d-flex justify-content-between">
                         <span>Total (USD)</span>
-                        <strong>$108.99</strong>
+                        <strong>${((parseFloat(course.Price)-5).toFixed(2))}</strong>
                     </li>
                     </ul>
                     <form class="card p-2">
